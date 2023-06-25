@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE CREATE - Payment</title>
+    <style>
+        /* CSS styles for animations */
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .fade-in-animation {
+            animation: fade-in 1s ease-in-out;
+        }
+        /* Other styles for the website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #777;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        section {
+            padding: 40px;
+        }
+        footer {
+            background-color: #777;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WE CREATE</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="payment.html">Payment</a></li>
+        </ul>
+    </nav>
+
+    <section id="payment" class="fade-in-animation">
+        <h2>Payment</h2>
+        <p>Please complete the payment by scanning the QR code below.</p>
+        <div id="qr-container"></div>
+        <a id="download-link" href="#" style="display: none;">Download PDF</a>
+        <button onclick="generateQRCode()">Generate QR Code</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 WE CREATE. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            // TODO: Generate the payment data (e.g., payment amount, account details, etc.)
+            const paymentData = 'Your payment data goes here';
+
+            // Generate the QR code image
+            const qrContainer = document.getElementById('qr-container');
+            qrContainer.innerHTML = '';
+            const qrcode = new QRCode(qrContainer, {
+                text: paymentData,
+                width: 200,
+                height: 200
+            });
+
+            // Enable the download link
+            const downloadLink = document.getElementById('download-link');
+            downloadLink.href = 'path_to_your_pdf_file.pdf';
+            downloadLink.style.display = 'inline';
+        }
+    </script>
+</body>
+</html>
